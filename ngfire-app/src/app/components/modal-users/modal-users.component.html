@@ -1,0 +1,58 @@
+<!-- Modal -->
+<div *ngIf="visible" class="modal-overlay">
+  <div class="modalMain">
+    <div class="modal-header">
+      <h2>Contatos</h2>
+      <button class="close-btn" (click)="closeModal()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20"
+          viewBox="0 0 24 24"
+          width="20"
+        >
+          <path
+            d="M6 18L18 6M6 6l12 12"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="contacts-list">
+      <div *ngFor="let contact of contacts | async" class="contact-item">
+        <div class="contact-info">
+          <div class="avatar-container">
+            <i
+              class="fa-solid fa-user d-flex avatar text-light justify-content-center align-items-center"
+            ></i>
+            <span class="status-indicator online"></span>
+          </div>
+          <div class="contact-details">
+            <h3>{{ contact.name }}</h3>
+            <span class="status-text"> Online </span>
+          </div>
+        </div>
+        <button class="message-btn" (click)="startMessage(contact.id)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+          >
+            <path
+              d="M12 3v18m9-9H3"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Mensagem
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="flex-grow-1 p-4 overflow-auto bg-segunda h-100">
+  <!-- Estado vazio -->
+  <div
+    *ngIf="messages$ | async as messages; else noMessages"
+    class="d-flex flex-column h-100 text-muted justify-content-end"
+  >
+    <div *ngIf="messages$ | async as messages">
+      <div *ngIf="user">
+        <div
+          *ngFor="let msg of messages"
+          [ngClass]="
+            msg.sender === user.nome ? 'align-items-end' : 'align-items-start'
+          "
+          class="d-flex flex-column p-3 rounded shadow"
+        >
+          <div
+            class="fw-bold text-primeira"
+            [ngClass]="
+              msg.sender === user.nome
+                ? 'text-end'
+                : 'text-start'
+            "
+          >
+            {{ msg.sender }}
+          </div>
+          <div
+            class="message-content px-3 py-2 rounded"
+            [ngClass]="
+              msg.sender === user.nome
+                ? 'bg-primeira text-white'
+                : 'bg-light text-dark'
+            "
+          >
+            {{ msg.content }}
+          </div>
+          <div class="small text-muted text-end mt-1">
+            {{ msg.timestamp | date : "shortTime" }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noMessages>
+    <div
+      class="rounded-circle d-flex align-items-center justify-content-center mb-3"
+      style="width: 64px; height: 64px"
+    >
+      <i
+        class="bi bi-chat-left-text"
+        style="font-size: 32px; color: var(--primeira)"
+      ></i>
+    </div>
+    <h4 class="mb-2">Suas mensagens</h4>
+    <p class="text-center w-75">
+      Selecione uma conversa para começar a trocar mensagens ou inicie uma nova
+      conversa com seus contatos.
+    </p>
+  </ng-template>
+
+  <!-- Lista de mensagens -->
+</div>

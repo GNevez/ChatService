@@ -1,0 +1,52 @@
+input::placeholder {
+  color: rgb(102, 102, 102) !important;
+}
+
+.text-muted {
+  color: rgb(102, 102, 102) !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.badge {
+  background-color: #ee3232;
+}
+
+.btn-hover {
+  background-color: transparent;
+}
+
+.btn-hover:hover {
+  background-color: #444444 !important;
+}
+
+.inputsBorder {
+  border: 1px solid white;
+}
+
+.inputsBorder:focus {
+  border: 1px solid #ee3232;
+}
+
+.bi-star-fill {
+  color: #ee3232 !important;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover .avatar {
+  border-color: #e11d48;
+}
+
+.selectedBorder {
+  border-color: #e11d48;
+}

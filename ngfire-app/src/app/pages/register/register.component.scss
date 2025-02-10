@@ -1,0 +1,27 @@
+.bg-segunda {
+    background-color: #1f1f1f;
+    background-image: url("/assets/background.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+  }
+  .bg-terceira {
+    background-color: #3a3a3a;
+  }
+  .btn-primeira {
+    background-color: rgb(241, 50, 50);
+    color: white;
+  }
+  .text-primeira {
+    color: rgb(241, 50, 50);
+  }
+  .btn-primeira:hover {
+    background-color: rgb(200, 40, 40);
+  }
+  .focus-outline:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(241, 50, 50, 0.5);
+    border-color: rgb(241, 50, 50);
+  }
+  

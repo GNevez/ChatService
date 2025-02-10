@@ -1,0 +1,135 @@
+<div
+  class="d-flex vh-100"
+  style="color: var(--light); background-color: var(--segunda)"
+>
+  <!-- Sidebar -->
+  <div
+    class="d-flex flex-column border-end"
+    style="width: 320px; border-color: var(--terceira)"
+  >
+    <!-- Header -->
+    <div
+      class="p-3 border-bottom bg-segunda text-white"
+      style="border-color: var(--terceira)"
+    >
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex align-items-center">
+          <div class="position-relative">
+            <div
+              class="rounded-circle d-flex align-items-center justify-content-center avatar contact-item"
+              style="
+                width: 40px;
+                height: 40px;
+                background-color: var(--terceira);
+              "
+            >
+              <i
+                class="bi bi-people"
+                style="font-size: 1.2rem; color: var(--light)"
+              ></i>
+            </div>
+            <div
+              class="position-absolute bottom-0 end-0 translate-middle p-1 border border-dark rounded-circle bg-success"
+            ></div>
+          </div>
+          <div class="ms-2" *ngIf="userData$ | async as userData">
+            <h5 class="mb-0">{{ userData.nome || "Usuário" }}</h5>
+            <small class="text-muted">Online</small>
+          </div>
+        </div>
+        <button class="btn btn-hover text-light btn-sm">
+          <i class="bi bi-gear"></i>
+        </button>
+      </div>
+      <!-- Search -->
+      <div class="position-relative">
+        <i
+          class="bi bi-search position-absolute top-50 start-0 translate-middle-y ps-3 text-light"
+        ></i>
+        <input
+          type="text"
+          class="form-control ps-5 shadow-none bg-segunda text-light inputsBorder"
+          placeholder="Pesquisar conversas"
+        />
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="d-flex p-2 gap-2 border-bottom bg-segunda text-white">
+      <button
+        class="btn btn-hover text-light flex-grow-1 d-flex align-items-center justify-content-center"
+      >
+        <i class="bi bi-star me-1"></i> Favoritos
+      </button>
+      <button
+        class="btn btn-hover text-light flex-grow-1 d-flex align-items-center justify-content-center"
+      >
+        <i class="bi bi-archive me-1"></i> Arquivados
+      </button>
+    </div>
+
+    <!-- Conversation List -->
+    <div class="flex-grow-1 overflow-auto bg-segunda text-light">
+      <div
+        *ngFor="let chat of conversations"
+        (click)="setSelectedChat(chat.id)"
+        class="d-flex align-items-center p-3 cursor-pointer hover-bg-terceira contact-item"
+        [ngClass]="{ 'bg-terceira': selectedChat === chat.id }"
+      >
+        <div class="position-relative">
+          <div
+            class="rounded-circle d-flex align-items-center justify-content-center avatar"
+            [ngClass]="{ 'selectedBorder': selectedChat === chat.id }"
+            style="width: 48px; height: 48px; background-color: var(--terceira)"
+          >
+            <i
+              class="bi bi-people"
+              style="font-size: 1.2rem; color: var(--light)"
+            ></i>
+          </div>
+          <div
+            class="position-absolute bottom-0 end-0 translate-middle p-1 border border-dark rounded-circle bg-success"
+          ></div>
+        </div>
+        <div class="ms-3 flex-grow-1">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center" *ngIf="userData$ | async as userData">
+              <h6 class="mb-0">{{ chat.user2 == userData.nome ? chat.user1 : chat.user2 }}</h6>
+              <ng-container *ngIf="chat.isStarred">
+                <i class="bi bi-star-fill ms-2"></i>
+              </ng-container>
+            </div>
+            <small class="text-muted">22:34</small>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="mb-0 text-truncate text-muted" style="max-width: 180px">
+              Online
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-modal-users></app-modal-users>
+    <!-- New Chat Button -->
+    <div class="p-4 border-top bg-segunda">
+      <button
+        class="btn btn-primeira w-100 d-flex align-items-center justify-content-center text-light"
+        (click)="openModal()"
+      >
+        <i class="bi bi-plus me-2"></i> Nova Conversa
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Chat Area -->
+  <div class="d-flex flex-column flex-grow-1">
+    <!-- Chat Header -->
+    <app-header-chat></app-header-chat>
+
+    <!-- Chat Messages Area -->
+    <app-main-chat class="h-100"></app-main-chat>
+
+    <!-- Message Input -->
+    <app-message-input></app-message-input>
+  </div>
+</div>

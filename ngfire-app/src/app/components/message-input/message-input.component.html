@@ -1,0 +1,29 @@
+<div class="p-3 border-top bg-segunda">
+    <div
+      class="d-flex align-items-center p-2 gap-2 bg-terceira"
+      style="border-radius: 10px"
+    >
+      <button class="btn btn-hover text-light">
+        <i class="bi bi-paperclip" style="color: var(--light)"></i>
+      </button>
+      <button class="btn btn-hover text-light">
+        <i class="bi bi-image" style="color: var(--light)"></i>
+      </button>
+      <input
+        type="text"
+        class="form-control bg-transparent border-0 mx-2 text-light shadow-none"
+        placeholder="Digite sua mensagem..."
+        style="color: var(--light)"
+        [(ngModel)]="message"
+      />
+      <button class="btn btn-hover text-light">
+        <i class="bi bi-emoji-smile" style="color: var(--light)"></i>
+      </button>
+      <button
+        class="btn btn-primeira ms-2 rounded-pill"
+        (click)="sendMessage()"
+      >
+        <i class="bi bi-send text-light"></i>
+      </button>
+    </div>
+  </div>

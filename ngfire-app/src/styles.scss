@@ -1,0 +1,45 @@
+// $primary: red;
+// $background-color: #1f1f1f;
+// $white-sec: #f0f0f0;
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$background-color: rgb(23 23 23 / 0.5);
+$primary: #ee3232;
+$secondary: #282828;
+
+$custom_colors: (
+  "primeira": #ee3232,
+  "segunda": rgb(23 23 23 / 0.5),
+  "terceira": #313131,
+);
+
+$theme-colors: map-merge($theme-colors, $custom_colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  background-color: $background-color !important;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-weight: 400 !important;
+}
+
+h6,
+h5,
+h4,
+h3,
+h2,
+button {
+  font-weight: 600 !important;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
