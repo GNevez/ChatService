@@ -41,6 +41,7 @@ Esta é uma aplicação de chat em tempo real que utiliza WebSockets para comuni
 1. **Clone o repositório:**
 
    git clone https://github.com/GNevez/ChatService
+
    cd ChatService
    
 ## Instale as dependências:
