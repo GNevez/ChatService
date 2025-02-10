@@ -1,4 +1,4 @@
-# Chat em Tempo Real
+# Aplicação de CHAT
 
 Esta é uma aplicação de chat em tempo real que utiliza WebSockets para comunicação instantânea, além de autenticação via sessions e JWT para garantir a segurança dos usuários. A aplicação foi desenvolvida utilizando as seguintes tecnologias:
 
@@ -84,4 +84,14 @@ A estrutura do projeto pode ser organizada da seguinte forma:
 
 ## Contribuição
 Contribuições são bem-vindas! Caso queira melhorar ou adicionar novas funcionalidades à aplicação, sinta-se à vontade para criar issues e pull requests.
+
+## Contato
+Se tiver dúvidas ou sugestões, entre em contato pelo guilhermenferraz@gmail.com
+
+
+
+
+
+
+
 
